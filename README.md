@@ -1,4 +1,4 @@
-This code can be implemented in oTree.
+This code is designed to work on oTree.
 
 **Game instructions**
 
