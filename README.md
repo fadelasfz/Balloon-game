@@ -11,8 +11,10 @@ Confirm your chosen number by pressing "TRY" to see the result of your choice. A
 There are three possible results:
 -	The balloon is under-inflated: this means that the balloon has not reached the breaking point. It can still be inflated.
 <img width="452" alt="image" src="https://github.com/user-attachments/assets/936eb583-bf63-47e6-8259-3922256ec27b" />
+
 -	The balloon has burst: this means you've passed the balloon's breaking point. You need to try a smaller number of push-ups.
 <img width="452" alt="image" src="https://github.com/user-attachments/assets/86b180ba-d210-4ad5-9b92-ddac139f8142" />
+
 -	The balloon is inflated to its breaking point: this means that you have found the balloon's breaking point.
 <img width="452" alt="image" src="https://github.com/user-attachments/assets/08c3549c-7497-4cff-bf98-2342287aa42b" />
 
