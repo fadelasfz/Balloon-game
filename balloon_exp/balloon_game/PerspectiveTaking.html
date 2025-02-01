@@ -1,0 +1,56 @@
+{{ block title }}
+
+<style>
+    @import url('https://fonts.cdnfonts.com/css/cooper-black');
+</style>
+<p style="font-family:'Cooper Black', sans-serif; text-align:center"> PRISE DE PERSPECTIVE </p>
+
+{{ endblock }}
+{{ block content }}
+
+<i style="font-family:'Trebuchet MS', sans-serif; text-align:justify"> <b> À quel point êtes-vous d'accord avec chacune des phrases suivantes ?</b> </i>
+<br>
+<br>
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Il m'est parfois difficile de voir les choses du point de vue de "l'autre". </span>
+{{ formfield 'pt1' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> J'essaie de prendre en compte les raisons du désaccord de chacun avant de prendre une décision. </span>
+{{ formfield 'pt2' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> J'essaie parfois de mieux comprendre mes amis en imaginant comment les choses se présentent de leur point de vue. </span>
+{{ formfield 'pt3' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Si je suis sûr d'avoir raison sur un sujet, je ne perds pas trop de temps à écouter les arguments des autres. </span>
+{{ formfield 'pt4' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Je pense que toute situation a deux angles de vue et j'essaie d'examiner les deux angles. </span>
+{{ formfield 'pt5' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Lorsque je suis en colère contre quelqu'un, j'essaie tout d'abord de me mettre à sa place pour un moment. </span>
+{{ formfield 'pt6' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Avant de critiquer quelqu'un, j'essaie d'imaginer ce que je ressentirais si j'étais à sa place. </span>
+{{ formfield 'pt7' }}
+
+<button class="btn btn-primary" style="color: white; background-color: #008080; border-color: #008080; font-size: 1rem; ">Suivant</button>
+
+
+{# FORM FIELDS #}
+{# Print #}
+
+{#<center>#}
+{#    <span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Choisissez votre nom </span>#}
+{#    {{ formfield }}#}
+{#</center>#}
+
+{#<br>#}
+{##}
+{#<center>#}
+{#    <span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Sexe </span>#}
+{#    {{ formfield 'gender'}}#}
+{#</center>#}
+
+
+
+{{ endblock }}

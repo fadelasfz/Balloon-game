@@ -1,0 +1,45 @@
+{{ block title }}
+<style>
+    @import url('https://fonts.cdnfonts.com/css/cooper-black');
+</style>
+<p style="font-family:'Cooper Black', sans-serif; text-align:justify">
+    <font color="#008080">Bonjour et bienvenue!</font>
+</p>
+{{ endblock }}
+{{ block content }}
+
+<style>
+    .tab {
+        display: none;
+    }
+</style>
+
+{{ include_sibling 'tabs.html' }}
+
+<script>
+
+    let activeTab = 0;
+    let tabs = document.getElementsByClassName('tab');
+
+    function showCurrentTabOnly() {
+      for (let i = 0; i < tabs.length; i++) {
+        let tab = tabs[i];
+        if (i === activeTab) {
+          tab.style.display = 'block';
+          tab.scrollIntoView();
+        } else {
+          tab.style.display = 'none';
+        }
+      }
+    }
+
+    showCurrentTabOnly();
+    for (let btn of document.getElementsByClassName('btn-tab')) {
+        btn.onclick = function () {
+            activeTab += parseInt(btn.dataset.offset);
+            showCurrentTabOnly();
+        }
+    }
+</script>
+
+{{ endblock }}

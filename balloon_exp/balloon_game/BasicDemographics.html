@@ -1,0 +1,117 @@
+{{ block title }}
+
+<style>
+    @import url('https://fonts.cdnfonts.com/css/cooper-black');
+</style>
+<p style="font-family:'Cooper Black', sans-serif; text-align:center"> INFORMATIONS SOCIO-DÉMOGRAPHIQUES </p>
+
+{{ endblock }}
+{{ block content }}
+
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Nom </span>
+{{ formfield 'name' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Entrez le numéro qui vous a été attribué </span>
+{{ formfield 'numero' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Sexe </span>
+{{ formfield 'gender' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Âge </span>
+{{ formfield 'age' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Statut matrimonial </span>
+{{ formfield 'marital_status' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Niveau d'éducation le plus élevé </span>
+{{ formfield 'education' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Groupe ethnique </span>
+<div id="gp_ethnique">{{ formfield 'ethnic_group' }}</div>
+
+
+<script>
+    let gp_ethnique = parseInt(document.getElementById('gp_ethnique'));
+    gp_ethnique.addEventListener("change", function () {
+        if (gp_ethnique.value===69) {
+            gp_ethnique_autre.remove("do-not-show");
+        }
+    })
+        if (ethnic_group_value===69) {
+            {#selectionEle.innerText = '';#}
+            {#document.getElementById('selection').innerText = localStorage.getItem('point1');#}
+            {#document.getElementById("ethnic_group").widget.attrs['blank'] = false;#}
+            {#document.getElementById("ethnic_group_other").style.display = "none";#}
+            form["ethnic_group_other"].field.style.display = "none";
+        }
+    }
+    forminputs.ethnic_group.onchange = checkOther;
+</script>
+
+{#<script>#}
+{#    function checkOther() {#}
+{#        let ethnic_group_value = parseInt(forminputs.ethnic_group.value);#}
+{#        if (ethnic_group_value===69) {#}
+            {#selectionEle.innerText = '';#}
+            {#document.getElementById('selection').innerText = localStorage.getItem('point1');#}
+            {#document.getElementById("ethnic_group").widget.attrs['blank'] = false;#}
+            {#document.getElementById("ethnic_group_other").style.display = "none";#}
+{#            form["ethnic_group_other"].field.style.display = "none";#}
+{#        }#}
+{#    }#}
+{#    forminputs.ethnic_group.onchange = checkOther;#}
+{#</script>#}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Si autre groupe ethnique, précisez ici </span>
+<div id="gp_ethnique_autre" class="do-not-show">{{ formfield 'ethnic_group_other' }}</div>
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Nationalité </span>
+{{ formfield 'nationality' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Si autre nationalité, précisez ici </span>
+{{ formfield 'nationality_other' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Avez-vous un emploi ? </span>
+{{ formfield 'have_job' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> De quel type est votre emploi principal ? </span>
+{{ formfield 'job_type' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Dans quel secteur d'activité est votre emploi principal ? </span>
+{{ formfield 'job_sector' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Si autre secteur d'activité, précisez ici ? </span>
+{{ formfield 'job_sector_other' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Quel est le titre/poste de votre emploi principal ? </span>
+{{ formfield 'job_title' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Sous-préfecture de votre domicile </span>
+{{ formfield 'sous_prefecture' }}
+
+<span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Si vous habitez dans une autre sous-préfecture, précisez-la ici </span>
+{{ formfield 'sous_prefecture_other' }}
+
+
+<button class="btn btn-primary" style="color: white; background-color: #008080; border-color: #008080; font-size: 1rem; ">Suivant</button>
+
+
+{# FORM FIELDS #}
+{# Print #}
+
+{#<center>#}
+{#    <span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Choisissez votre nom </span>#}
+{#    {{ formfield }}#}
+{#</center>#}
+
+{#<br>#}
+{##}
+{#<center>#}
+{#    <span style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Sexe </span>#}
+{#    {{ formfield 'gender'}}#}
+{#</center>#}
+
+
+
+{{ endblock }}

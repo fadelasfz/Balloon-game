@@ -1,0 +1,63 @@
+{{ block title }}
+<style>
+    @import url('https://fonts.cdnfonts.com/css/cooper-black');
+</style>
+<p style="font-family:'Cooper Black', sans-serif; text-align:justify">
+    <font color="#008080">Bonjour et bienvenue!</font>
+</p>
+{{ endblock }}
+{{ block content }}
+
+<h3 style="font-family:'Trebuchet MS', sans-serif; text-align:justify">
+        Règles du jeu
+    </h3>
+    <p style="font-family:'Trebuchet MS', sans-serif; text-align:justify">
+        Ce jeu consiste à trouver le point de rupture de plusieurs ballons, c'est-à-dire le nombre maximal de fois où le ballon peut être pompé sans éclater.
+        Par example, si un ballon éclate lorsqu'il est pompé 15 fois mais reste entier lorsqu'il est pompé 14 fois, le point de rupture du ballon est 14 pompes.
+        L'image ci-dessous présente l'interface du jeu.<br>
+    </p>
+    <img src="https://dl.dropboxusercontent.com/scl/fi/744v84aya0unslx7wy6er/Interface_1.png?rlkey=p6d1hkn6xc6yzylmyyv83434q&st=eul5wv7y&dl=0" width="500px" />
+    <ul style="font-family:'Trebuchet MS', sans-serif; text-align:justify">
+        <li>
+            Vous aurez <b>20 minutes</b> pour jouer. Le temps qu'il vous reste est affiché en permanence sur la bande jaune en haut.
+        </li>
+        <li>
+            Choisissez le nombre de pompes à essayer en bougeant le "smiley" du slider, ou entrez manuellement ce nombre dans l'espace reservé en-dessous du slider.
+        </li>
+        <li>
+            Le nombre minimal de pompe que vous pouvez entrer est 1, et le nombre maximal vous est indiqué à droite du slider (<i>pour l'exemple sur l'image, le maximum c'est 20</i>). Si vous entrez un nombre inférieur à 1 ou supérieur au maximum indiqué, vous ne pourrez pas le valider.
+        </li>
+        <li>
+            Validez le nombre choisi en appuyant sur "ESSAYER" pour voir le résultat de votre choix. Une courte vidéo vous annoncera ce résultat.
+        </li>
+    </ul>
+    <p style="font-family:'Trebuchet MS', sans-serif; text-align:justify">
+        Il y a trois résultats possibles :<br>
+    </p>
+    <ul style="font-family:'Trebuchet MS', sans-serif; text-align:justify">
+        <li>
+            <b><font color="#FF8C00">Le ballon n'est pas assez gonflé</font></b> : cela signifie que le ballon n'a pas atteint le point de rupture. Il peut encore être gonflé.<br><br>
+            <img src="https://dl.dropboxusercontent.com/scl/fi/vw4583ubbm266957sc31l/Interface_2.png?rlkey=cyg3ix7bj60guvpfebu2kifev&st=cqq34bp5&dl=0" width="300px" /><br>
+        </li>
+        <br>
+        <li>
+            <b><font color="#8B0000">Le ballon a explosé</font></b> : cela signifie que vous avez dépassé le point de rupture du ballon. Vous devez essayer un nombre de pompes plus petit.<br><br>
+            <img src="https://dl.dropboxusercontent.com/scl/fi/qssd0v2zr32quc7nefkw1/Interface_4.png?rlkey=pu792chw1bbbcwk3e5msgsqmb&st=fmsrbpsg&dl=0" width="300px" /><br>
+        </li>
+        <br>
+        <li>
+            <b><font color="#008000">Le ballon est gonflé à son point de rupture</font></b> : cela signifie que vous avez trouvé le point de rupture du ballon.<br><br>
+            <img src="https://dl.dropboxusercontent.com/scl/fi/kaxag3s3zesn9oblf3hzs/Interface_3.png?rlkey=unja5c0kpq6r9gk3asftlicf2&st=f1vd2qgq&dl=0" width="300px" /><br>
+        </li>
+    </ul>
+    <br>
+    <p style="font-family:'Trebuchet MS', sans-serif; text-align:justify">
+        Trouver le point de rupture d'un ballon vous fait gagner <b><font color="#008080">1 point</font></b>. Notez que si vous validez le bon résultat, vous obtenez le point même si la lecture de la vidéo de résultat n'est pas terminée. Cela signifie que si le jeu se termine en pleine lecture de la vidéo et le nombre entré était la solution, vous obtenez le point.<br><br>
+        Pour chaque point gagné, vous recevrez un paiement de <b><font color="#008080">500 FCFA</font></b> à la fin de la session.<br><br>
+        <i> Si les instructions du jeu ne sont pas claires, posez des questions aux chercheurs.</i><br>
+{#        Notez que vous n'obtiendrez le point qu'au terme de la lecture de la vidéo de résultat. Cela signifie que si le jeu se termine en pleine lecture de la vidéo, même si le nombre entré était la solution, vous n'obtenez pas le point.#}
+    </p>
+{#    <button type="button" class="btn-tab" data-offset="-1">Retour</button>#}
+    <button class="btn-primary" style="color: white; background-color: #008080; border-color: #008080; font-size: 1rem; ">Essayer le jeu</button>
+
+{{ endblock }}

@@ -1,0 +1,393 @@
+{{ block title }}
+
+<style>
+    @import url('https://fonts.cdnfonts.com/css/cooper-black');
+</style>
+<p style="font-family:'Cooper Black', sans-serif; text-align:center"> BALLON {{ player.round_number }} </p>
+
+{{ endblock }}
+{{ block content }}
+
+
+
+
+
+
+
+{# DEFINE SLIDER MAXIMUM VALUE AND THE SOLUTION TO THE BALOON #}
+
+<script>
+    window.onload = function() {
+        defineSliderParameters();
+    }
+    function getRandomInt(min, max) {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+    }
+    function defineSliderParameters() {
+        var ball_max = (parseInt(js_vars.round_number)===1) ? 5 : (parseInt(js_vars.round_number)===2) ? 10 : (parseInt(js_vars.round_number)===3) ? 17 : (parseInt(js_vars.round_number)===4) ? 25 : (parseInt(js_vars.round_number)===5) ? 34 : (parseInt(js_vars.round_number)===6) ? 39 : (parseInt(js_vars.round_number)===7) ? 46 : (parseInt(js_vars.round_number)===8) ? 52 : (parseInt(js_vars.round_number)===9) ? 60 : (parseInt(js_vars.round_number)===10) ? 68 : (parseInt(js_vars.round_number)===11) ? 75 : (parseInt(js_vars.round_number)===12) ? 86 : (parseInt(js_vars.round_number)===13) ? 91 : (parseInt(js_vars.round_number)===16) ? 100 : (parseInt(js_vars.round_number)===17) ? 114 : (parseInt(js_vars.round_number)===18) ? 125 : (parseInt(js_vars.round_number)===19) ? 136 : (parseInt(js_vars.round_number)===20) ? 140 : (parseInt(js_vars.round_number)===21) ? 147 : (parseInt(js_vars.round_number)===22) ? 153 : (parseInt(js_vars.round_number)===23) ? 160 : (parseInt(js_vars.round_number)===24) ? 170 : (parseInt(js_vars.round_number)===25) ? 177 : (parseInt(js_vars.round_number)===26) ? 182 : (parseInt(js_vars.round_number)===27) ? 193 : (parseInt(js_vars.round_number)===28) ? 200 : (parseInt(js_vars.round_number)===29) ? 220 : (parseInt(js_vars.round_number)===30) ? 235 : (parseInt(js_vars.round_number)===31) ? 244 : (parseInt(js_vars.round_number)===32) ? 252 : (parseInt(js_vars.round_number)===33) ? 261 : (parseInt(js_vars.round_number)===34) ? 269 : (parseInt(js_vars.round_number)===35) ? 275 : (parseInt(js_vars.round_number)===36) ? 300 : 300+50*(js_vars.round_number-36) ;
+        localStorage.setItem("ball_max", ball_max);
+        document.getElementById("range").max = parseInt(localStorage.getItem('ball_max'));
+        if (reloadCount===0) {
+            var nb_max_pump = getRandomInt(1, ball_max);
+            localStorage.setItem("nb_max_pump", nb_max_pump);
+        }
+        var nb_max_pump = localStorage.getItem('nb_max_pump') ? localStorage.getItem('nb_max_pump') : getRandomInt(5, ball_max);
+        var nb_max_pump_span = document.getElementById('nb_max_pump');
+        nb_max_pump_span.innerText = "Solution: " + nb_max_pump;
+        {#alert(js_vars.round_number);#}
+        var ball_max_span = document.getElementById('ball_max');
+        ball_max_span.innerText = ball_max;
+        var ball_max_other_span = document.getElementById('ball_max_other');
+        ball_max_other_span.innerText = "Vous pouvez directement entrer un nombre entre 1 et " + ball_max + " ici";
+    }
+</script>
+
+<h3 style="font-family:'Trebuchet MS', sans-serif; text-align:center"> Combien de fois voulez-vous pomper le ballon ? </h3>
+
+{#{{ player.max_pump_1 }}#}
+
+<br>
+<br>
+<br>
+<br>
+
+{# SLIDER #}
+
+{# CSS Styling #}
+
+<style>
+    input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        cursor: pointer;
+        outline: none;
+        border-radius: 15px;
+        height: 6px;
+        background: #ccc;
+    }
+    /* Thumb: webkit */
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 30px;
+        width: 30px;
+        background-image: url("https://ibaslogic.github.io/hosted-assets/smile.png");
+        background-size: cover;
+        border-radius: 50%;
+        border: none;
+        transition: .2s ease-in-out;
+        /*  rotate thumb  */
+        transform: rotateZ(var(--thumb-rotate, 0deg));
+    }
+    /* Thumb: Firefox */
+    input[type="range"]::-moz-range-thumb {
+        height: 30px;
+        width: 30px;
+        background-image: url("https://ibaslogic.github.io/hosted-assets/smile.png");
+        background-size: cover;
+        border-radius: 50%;
+        border: none;
+        transition: .2s ease-in-out;
+        /*  rotate thumb  */
+        transform: rotateZ(var(--thumb-rotate, 0deg));
+    }
+    /* Hover, active & focus Thumb: Webkit */
+    input[type="range"]::-webkit-slider-thumb:hover {
+        box-shadow: 0 0 0 10px rgba(255,85,0, .1)
+    }
+    input[type="range"]:active::-webkit-slider-thumb {
+        box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+    }
+    input[type="range"]:focus::-webkit-slider-thumb {
+        box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+    }
+    /* Hover, active & focus Thumb: Firefox */
+    input[type="range"]::-moz-range-thumb:hover {
+        box-shadow: 0 0 0 10px rgba(255,85,0, .1)
+    }
+    input[type="range"]:active::-moz-range-thumb {
+        box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+    }
+    input[type="range"]:focus::-moz-range-thumb {
+        box-shadow: 0 0 0 13px rgba(255,85,0, .2)
+    }
+    /* Aesthetics */
+    body {
+        font-family: system-ui;
+    }
+    h1 {
+        color: #4b4949;
+        text-align: center;
+    }
+    .wrapper {
+        color: #4b4949;
+        max-width: 400px;
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .range {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        max-width: 500px;
+        margin: 0 auto;
+        height: 4rem;
+        width: 80%;
+        background: #fff;
+        padding: 0px 10px;
+    }
+    .value {
+        font-size: 26px;
+        width: 50px;
+        text-align: center;
+    }
+</style>
+
+{# HTML Styling #}
+
+<script>
+    const sliderEl = document.querySelector("#range")
+    const sliderValue = document.querySelector(".value")
+    sliderEl.addEventListener("input", (event) => {
+        const tempSliderValue = event.target.value;
+        sliderValue.textContent = tempSliderValue;
+        const progress = (tempSliderValue / sliderEl.max) * 100;
+        sliderEl.style.background = `linear-gradient(to right, #f50 ${progress}%, #ccc ${progress}%)`;
+        sliderEl.style.setProperty("--thumb-rotate", `${(tempSliderValue/100) * 2160}deg`)
+    })
+</script>
+
+{# Print #}
+
+<div class="d-flex justify-content-center my-4">
+{#    <span style="border: 2px solid #E6E6FA; padding: 1px; font-family: 'verdana'; font-size: 100%; background-color: #E6E6FA;" class="font-weight-bold mr-2">1</span>#}
+    <span style="font-family: 'Gill Sans', sans-serif; font-size: 150%; width: 10%; min-width: 10px; height: 30px; margin: -10px; text-align: center;" class="font-weight-bold">1</span>
+    <form action="" class="range-field w-100">
+        <input type="range" name="slider_one" value="None" step="1" style="width:500px" min="1" id="range" class="form-control">
+    </form>
+    <span style="font-family: 'Gill Sans', sans-serif; font-size: 150%; width: 10%; min-width: 10px; height: 30px; margin: -10px; text-align: center;" id="ball_max"></span>
+</div>
+
+<br>
+
+
+<span style="font-family: 'Gill Sans', sans-serif; font-size: 150%; width: 10%; min-width: 10px; height: 30px; margin: -10px; text-align: center;" id="nb_max_pump"></span>
+
+{# Trigger input of formfield 'ball' when a value is chosen in slider and put that value in 'ball' to print #}
+
+
+
+<script>
+    {#var point1 = localStorage.getItem('point1') ? localStorage.getItem('point1') : js_vars.max_pump;#}
+	$(document).ready(function () {
+    	$('input[name=slider_one]').on('input', function() {
+            forminputs.ball.value = parseInt($(this).val());
+            forminputs.ball.dispatchEvent(new Event('input'));
+        });
+    });
+</script>
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+{# FORM FIELD #}
+
+{# Print #}
+
+<center>
+    {{ formfield 'ball' }}
+    <span class="emphasized" style="font-family:'cursive'; font-style: italic;" id="ball_max_other"></span>
+</center>
+
+
+
+
+
+
+
+{# VIDEOS WHEN FORM IS VALIDATED #}
+
+{# Bootstrap #}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+{# CSS Styling of validation/go to video button #}
+
+<style>
+    .button {
+        background-color: #20B2AA;
+        border: none;
+        border-radius: 2px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+    }
+    .button:hover {
+        background-color: #008080;
+        {#border: 2px solid #008080;#}
+        color: white;
+    }
+    .button:active {
+        background-color: #008080;
+        box-shadow: 0 5px #5F9EA0;
+        transform: translateY(4px);
+        color: white;
+    }
+    .disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+</style>
+
+{# Print #}
+
+<br>
+<br>
+<br>
+
+<center>
+    <button id="myBtn" type="button" class="btn btn-lg video button" data-toggle="modal" data-target="#videoModal" disabled >ESSAYER</button>
+</center>
+
+{#<button onclick="myFunction()">Stop the game now</button>#}
+
+{#<script>#}
+{#function myFunction() {#}
+{#  liveSend({'end_game': true});#}
+{# }#}
+{#</script>#}
+
+{# Disable validation button when there is no value chosen or an invalid value is chosen #}
+{# Enable validation button when a valid value is chosen #}
+{# Change animation video according to value entered #}
+
+<script>
+    function recalc() {
+        let nb_pumps = parseInt(forminputs.ball.value);
+        if (isNaN(nb_pumps) || (nb_pumps<1) || (nb_pumps>parseInt(localStorage.getItem('ball_max')))) {
+            {#selectionEle.innerText = '';#}
+            {#document.getElementById('selection').innerText = localStorage.getItem('point1');#}
+            document.getElementById("myBtn").disabled = true;
+        } else {
+            {#selectionEle.innerText = nb_pumps;#}
+            document.getElementById("myBtn").disabled = false;
+            {#document.getElementById('selection').innerText = localStorage.getItem('point1');#}
+        }
+        if (nb_pumps === parseInt(localStorage.getItem('nb_max_pump'))) {
+            liveSend({'count': parseInt(reloadCount), 'solution_to_find': parseInt(localStorage.getItem('nb_max_pump')), 'found_solution': true});
+            document.getElementById('myBtn').setAttribute("data-video", "https://dl.dropboxusercontent.com/scl/fi/m3uy7h64jnq7pxpey43mx/Success_short.mp4?rlkey=sk1x2rxk2h5du3k9hlef1a82a&st=19yiz7g0&dl=0");
+        }
+        if (nb_pumps > parseInt(localStorage.getItem('nb_max_pump'))) {
+            document.getElementById('myBtn').setAttribute("data-video", "https://dl.dropboxusercontent.com/scl/fi/qrajg19o7g02gyxitp17x/Explosion_short.mp4?rlkey=3nlt8bb87g1brq74fryy8db92&st=y1rssjbf&dl=0");
+        }
+        if (nb_pumps < parseInt(localStorage.getItem('nb_max_pump'))) {
+            document.getElementById('myBtn').setAttribute("data-video", "https://dl.dropboxusercontent.com/scl/fi/1eb8l4j8gz5biyeg2ihlg/Not_enough_short.mp4?rlkey=377pfguq9ubbxv6zmi1ed9ui5&st=if7fqq7h&dl=0");
+        }
+    }
+    forminputs.ball.oninput = recalc;
+</script>
+
+{# Define video modal #}
+
+<div class="modal fade" id="videoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <video id="video1" width="100%" autoplay="autoplay" muted >
+{#                    width="500" height="500"#}
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#<style>#}
+{#     div.video-block {#}
+{#    padding-left: 0 !important;#}
+{#    padding-right: 0 !important;#}
+{# }#}
+{#</style>#}
+
+
+{# Display video when clicked #}
+{# Save number of failed attemps when the solution is found #}
+{# Automatically close the modal and reload the page at the end of the video #}
+
+<script>
+    $(function () {
+        $(".video").click(function () {
+            var theModal = $(this).data("target"),
+                videoSRC = $(this).attr("data-video"),
+                videoSRCauto = videoSRC + "";
+            $(theModal + ' source').attr('src', videoSRCauto);
+            $(theModal + ' video').load();
+            $(theModal + ' button.close').click(function () {
+                $(theModal + ' source').attr('src', videoSRC);
+             });
+            $(theModal + ' button.close').css('display', 'none'); //hide close button
+            setTimeout(function(){
+                $("#videoModal").hide();
+                if (parseInt(forminputs.ball.value) === parseInt(localStorage.getItem('nb_max_pump'))) {
+                    {#liveSend({'count': parseInt(reloadCount), 'solution_to_find': parseInt(localStorage.getItem('nb_max_pump'))});#}
+                    document.getElementById("form").submit();
+                } else {
+                    location.reload();
+                }
+                }, 4600); //timeout to close the modal
+        });
+        {#$('.video').click(); //Autoclick#}
+    });
+</script>
+
+{# Count number of page reloads which equals number of failed attemps #}
+
+<script>
+    var state = history.state || {};
+    var reloadCount = state.reloadCount || 0;
+    if (performance.navigation.type === 1) { // Reload
+        state.reloadCount = ++reloadCount;
+        history.replaceState(state, null, document.URL);
+    } else if (reloadCount) {
+        delete state.reloadCount;
+        reloadCount = 0;
+        history.replaceState(state, null, document.URL);
+    }
+</script>
+
+
+{# Add end game button #}
+
+{#<button type="button" class="btn" onclick="checkEnd()">End the game</button>#}
+{##}
+{#<script>#}
+{#    function checkEnd() {#}
+{#        if (window.confirm("Nous vous rappelons que vous ne recevrez aucun paiement à la fin de la session si vous ne terminez pas le jeu. Êtes-vous sûr de vouloir arrêter le jeu ?")) {#}
+{#            liveSend({'end_game': true});#}
+            {#document.getElementById("form").submit();#}
+{#        }#}
+{#    }#}
+{#</script>#}
+
+{{ endblock }}
